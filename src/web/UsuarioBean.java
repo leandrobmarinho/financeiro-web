@@ -1,4 +1,4 @@
-package financeiro.web;
+package web;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
