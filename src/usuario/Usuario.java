@@ -5,9 +5,10 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "usuario")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 7414696659199394187L;
-
+	
 	@Id
 	@GeneratedValue
 	private Integer codigo;

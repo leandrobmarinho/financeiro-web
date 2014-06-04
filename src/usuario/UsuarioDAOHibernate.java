@@ -14,6 +14,16 @@ public class UsuarioDAOHibernate implements UsuarioDAO {
 	}
 
 	public void salvar(Usuario usuario) {
+		System.out.println(usuario.getCodigo());
+		System.out.println(usuario.getNome());
+		System.out.println(usuario.getLogin());
+		System.out.println(usuario.getEmail());
+		System.out.println(usuario.getSenha());
+		System.out.println(usuario.getNascimento());
+		System.out.println(usuario.getCelular());
+		System.out.println(usuario.getIdioma());
+		System.out.println(usuario.isAtivo());
+		
 		this.session.save(usuario);
 	}
 

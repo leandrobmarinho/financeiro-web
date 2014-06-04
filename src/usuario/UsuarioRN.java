@@ -1,12 +1,9 @@
 package usuario;
 
 import java.util.List;
-import java.util.Locale;
 
 //import financeiro.categoria.CategoriaRN;
 import util.DAOFactory;
-import util.RNException;
-import util.UtilException;
 //import web.util.EmailUtil;
 //import web.util.MensagemUtil;
 
