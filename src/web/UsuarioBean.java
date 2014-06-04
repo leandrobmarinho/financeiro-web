@@ -5,56 +5,47 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
-//fd
+import usuario.Usuario;
+import usuario.UsuarioRN;
+
 @ManagedBean(name = "usuarioBean")
 @RequestScoped
 public class UsuarioBean {
-	private String nome;
-	private String email;
-	private String senha;
+	private Usuario usuario = new Usuario();
 	private String confirmarSenha;
 	
 	public String novo(){
+		this.usuario = new Usuario();
+		this.usuario.setAtivo(true);
 		return "usuario";
 	}
 	
 	public String salvar(){
 		FacesContext context = FacesContext.getCurrentInstance();
-		if(!this.senha.equalsIgnoreCase(this.confirmarSenha)){
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					"Senha confirmada incorretamente", ""));
-			return "usuario";
+		
+		String senha = this.usuario.getSenha();
+		if(!this.confirmarSenha.equals(senha)){
+			FacesMessage facesMessage = new FacesMessage("A senha não foi confirmada corretamente");
+			context.addMessage(null, facesMessage);
+			return null;
 		}
 		
-		//salva o usuario
-		return "sucesso";
+		UsuarioRN usuarioRN = new UsuarioRN();
+		usuarioRN.salvar(this.usuario);
+		
+		return "usuarioSucesso";
 	}
 	
-	public String getNome() {
-		return nome;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	public String getConfirmarSenha() {
 		return confirmarSenha;
 	}
-
 	public void setConfirmarSenha(String confirmarSenha) {
 		this.confirmarSenha = confirmarSenha;
-	}
-	
+	}		
 }

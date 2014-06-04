@@ -5,6 +5,16 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>FinanceiroWeb</display-name>
 
+	<filter>
+		<filter-name>conexaoFiter</filter-name>
+		<filter-class>web.filter.ConexaoHibernateFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>conexaoFiter</filter-name>
+		<url-pattern>*.jsf</url-pattern>
+	</filter-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.xhtml</welcome-file>
 	</welcome-file-list>
