@@ -15,6 +15,7 @@ xmlns:f="http://java.sun.com/jsf/core">
 		<h:messages />
 		<h:inputHidden value="#{usuarioBean.usuario.codigo}" />
 		<h:inputHidden value="#{usuarioBean.usuario.ativo}" />
+		<h:inputHidden value="#{usuarioBean.destinoSalvar}" />
 		
 		<h:panelGrid columns="2">
 		
@@ -44,7 +45,7 @@ xmlns:f="http://java.sun.com/jsf/core">
 			</h:panelGroup>
 			
 			<h:outputLabel value="Idioma" for="idioma"/>
-			<h:selectOneMenu value="#{usuarioBean.usuario.idioma}">
+			<h:selectOneMenu id="idioma" value="#{usuarioBean.usuario.idioma}">
 				<f:selectItem itemValue="pt_BR" itemLabel="Português"/>
 				<f:selectItem itemValue="en_US" itemLabel="English"/>
 				<f:selectItem itemValue="es_ES" itemLabel="Espanol"/>
