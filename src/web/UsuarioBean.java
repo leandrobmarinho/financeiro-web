@@ -1,6 +1,6 @@
 package web;
 
-import java.util.List;
+import java.util.*;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -61,6 +61,20 @@ public class UsuarioBean {
 		
 		UsuarioRN usuarioRN = new UsuarioRN();
 		usuarioRN.salvar(this.usuario);
+		return null;
+	}
+	
+	public String atribuiPermissao(Usuario usuario, String permissao) {
+
+		this.usuario = usuario;
+
+		Set<String> permissoes = this.usuario.getPermissao();
+
+		if (permissoes.contains(permissao)) {
+			permissoes.remove(permissao);
+		} else {
+			permissoes.add(permissao);
+		}
 		return null;
 	}
 	

@@ -23,7 +23,7 @@ public class UsuarioDAOHibernate implements UsuarioDAO {
 		System.out.println(usuario.getCelular());
 		System.out.println(usuario.getIdioma());
 		System.out.println(usuario.isAtivo());
-		
+
 		this.session.save(usuario);
 	}
 
@@ -37,13 +37,12 @@ public class UsuarioDAOHibernate implements UsuarioDAO {
 		System.out.println(usuario.getCelular());
 		System.out.println(usuario.getIdioma());
 		System.out.println(usuario.isAtivo());
-		/*
-		 * if (usuario.getPermissao() == null || usuario.getPermissao().size()
-		 * == 0) { Usuario usuarioPermissao =
-		 * this.carregar(usuario.getCodigo());
-		 * usuario.setPermissao(usuarioPermissao.getPermissao());
-		 * this.session.evict(usuarioPermissao); }
-		 */
+
+		if (usuario.getPermissao() == null || usuario.getPermissao().size() == 0) {
+			Usuario usuarioPermissao = this.carregar(usuario.getCodigo());
+			usuario.setPermissao(usuarioPermissao.getPermissao());
+			this.session.evict(usuarioPermissao);
+		}
 
 		this.session.update(usuario);
 	}

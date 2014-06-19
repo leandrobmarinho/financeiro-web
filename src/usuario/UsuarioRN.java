@@ -28,8 +28,7 @@ public class UsuarioRN {
 		Integer codigo = usuario.getCodigo();
 		if (codigo == null || codigo == 0) {
 
-			//usuario.getPermissao().add("ROLE_USUARIO");
-
+			usuario.getPermissao().add("ROLE_USUARIO");
 			this.usuarioDAO.salvar(usuario);
 
 			//CategoriaRN categoriaRN = new CategoriaRN();
