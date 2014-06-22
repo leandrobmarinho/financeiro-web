@@ -27,5 +27,6 @@
 
 		<!-- Mapeando classes -->
 		<mapping class="usuario.Usuario" />
+		<mapping class="conta.Conta" />
 	</session-factory>
 </hibernate-configuration>

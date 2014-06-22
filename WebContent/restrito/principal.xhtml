@@ -3,8 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:security="http://www.springframework.org/security/facelets/tags"
->
+	xmlns:security="http://www.springframework.org/security/facelets/tags">
 
 <h:head>
 	<title>Principal</title>
@@ -16,16 +15,28 @@
 	Usuário logado #{request.remoteUser}
 	<br />
 
+	Nome do Usuário Logado #{contextoBean.usuarioLogado.nome}
 	<h:form>
+		<h:commandButton value="Conta" action="conta" />
+
+
+		<h:selectOneMenu value="#{contextoBean.contaAtiva.conta}"
+			valueChangeListener="#{contextoBean.setContaAtiva}"
+			rendered="#{!empty contextoBean}" onchange="submit()">
+			<f:selectItems value="#{contaBean.lista}" var="conta"
+				itemValue="#{conta.conta}" itemLabel="#{conta.descricao}" />
+		</h:selectOneMenu>
+
 		<security:ifAnyGranted roles="ROLE_ADMINISTRADOR">
 			<h:commandLink action="/admin/principal" title="Administrativo">
 				<h:graphicImage library="imagens" name="administrativo16.png" />
 			</h:commandLink>
 		</security:ifAnyGranted>
 
-		<a onclick="document.location='#{request.contextPath}/j_spring_security_logout'"
-			title="Sair">
-			<h:graphicImage library="imagens" name="logout16.png" />
+		<a
+			onclick="document.location='#{request.contextPath}/j_spring_security_logout'"
+			title="Sair"> <h:graphicImage library="imagens"
+				name="logout16.png" />
 		</a>
 	</h:form>
 </h:body>

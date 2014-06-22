@@ -1,18 +1,9 @@
 package util;
 
-/*
-import financeiro.bolsa.acao.AcaoDAO;
-import financeiro.bolsa.acao.AcaoDAOHibernate;
-import financeiro.categoria.CategoriaDAO;
-import financeiro.categoria.CategoriaDAOHibernate;
-import financeiro.cheque.ChequeDAO;
-import financeiro.cheque.ChequeDAOHibernate;
-import financeiro.conta.ContaDAO;
-import financeiro.conta.ContaDAOHibernate;
-import financeiro.lancamento.LancamentoDAO;
-import financeiro.lancamento.LancamentoDAOHibernate; */
 import usuario.UsuarioDAO;
 import usuario.UsuarioDAOHibernate;
+import conta.ContaDAO;
+import conta.ContaDAOHibernate;
 
 public class DAOFactory {
 
@@ -27,14 +18,16 @@ public class DAOFactory {
 		CategoriaDAOHibernate categoriaDAO = new CategoriaDAOHibernate();
 		categoriaDAO.setSession(HibernateUtil.getSessionFactory().getCurrentSession());
 		return categoriaDAO;
-	}
+	}*/
 
+	
 	public static ContaDAO criarContaDAO() {
 		ContaDAOHibernate contaDAO = new ContaDAOHibernate();
 		contaDAO.setSession(HibernateUtil.getSessionFactory().getCurrentSession());
 		return contaDAO;
 	}
 	
+	/*
 	public static LancamentoDAO criarLancamentoDAO() {
 		LancamentoDAOHibernate lancamentoDAO = new LancamentoDAOHibernate();
 		lancamentoDAO.setSession(HibernateUtil.getSessionFactory().getCurrentSession());
