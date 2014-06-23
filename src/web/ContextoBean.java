@@ -46,9 +46,7 @@ public class ContextoBean {
 	}
 
 	public Conta getContaAtiva() {
-		System.out.println("entroou....");
 		if (this.contaAtiva == null) {
-			System.out.println(2);
 			Usuario usuario = this.getUsuarioLogado();
 			
 			System.out.println(usuario.getCodigo() + " " + usuario.getLogin() + " usuariologado");
@@ -59,20 +57,17 @@ public class ContextoBean {
 			System.out.println(this.contaAtiva + " conta ativa");
 
 			if (this.contaAtiva == null) {
-				System.out.println(3);
 				
 				List<Conta> contas = contaRN.listar(usuario);
 				if (contas != null) {
 					System.out.println(4 + " " + contas);
 					for (Conta conta : contas) {
 						this.contaAtiva = conta;
-						System.out.println(5 + " " + contas);
 						break;						
 					}
 				}
 			}
 		}
-		System.out.println(this.contaAtiva);
 		return this.contaAtiva;
 	}
 

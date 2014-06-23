@@ -38,7 +38,6 @@ public class ContaDAOHibernate implements ContaDAO {
 		Criteria criteria = this.session.createCriteria(Conta.class);
 		criteria.add(Restrictions.eq("usuario", usuario));
 
-		System.out.println(criteria.list());
 		return criteria.list();
 		
 	}
