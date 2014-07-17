@@ -1,4 +1,4 @@
 financeiro-web
 ==============
 
-Sistema Web Financeiro adotado pelo livro "ProgramaÃ§Ã£o Java para a Web"
+Sistema Web Financeiro adotado pelo livro "Programação Java para a Web"
